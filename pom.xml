@@ -24,7 +24,20 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.7</java.version>
     <struts.version>1.3.10</struts.version>
+    <log4j2.version>2.7</log4j2.version>
   </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-bom</artifactId>
+        <version>${log4j2.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   
   <dependencies>
     <!-- Add Struts dependency Start -->
@@ -41,6 +54,37 @@
     </dependency>
     <!-- Add Struts dependency End -->
     
+    <!-- Add Log dependency start -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+    </dependency>
+    
+    <!-- apache commons logging bridge -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jcl</artifactId>
+    </dependency>
+    
+    <!-- support and handle the ClassLoader environment and container lifecycle of a web application, only required at runtime -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- Add Log dependency end -->
+    
     <!-- Add Servlet API -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -56,6 +100,7 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <!-- Add dependency for Testing End -->
   </dependencies>
   
   <build>
