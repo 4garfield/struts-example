@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration monitorInterval="30" status="WARN" strict="true">
+  <Properties>
+    <Property name="logPath">/tmp/struts-hello</Property>
+    <Property name="pattern">[%d{dd-MMM-yyyy HH:mm:ss}] [%-5level] %logger{36}\t%m%n</Property>
+  </Properties>
+  
+  <Appenders>
+    <Appender type="Console" name="systemOut">
+      <Layout type="PatternLayout" pattern="${pattern}"/>
+    </Appender>
+    
+    <Appender type="RollingFile" name="rollingFile" fileName="${logPath}/app.log" filePattern="${logPath}/app-%d{yyyy-MM-dd}-%i.log">
+      <Layout type="PatternLayout" pattern="${pattern}"/>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="10 MB"/>
+      </Policies>
+      <DefaultRolloverStrategy max="50"/>
+    </Appender>
+  </Appenders>
+  
+  <Loggers>
+    <Root level="trace">
+      <AppenderRef ref="rollingFile"/>
+      <AppenderRef ref="systemOut" level="info"/>
+    </Root>
+  </Loggers>
+</Configuration>
