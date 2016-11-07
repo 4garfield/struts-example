@@ -10,7 +10,10 @@
   </form-beans>
 
   <action-mappings>
-    <action path="/hello" type="garfield.java.struts.hello.action.HelloAction" name="helloForm">
+    <action 
+      path="/hello"
+      type="garfield.java.struts.hello.action.HelloAction"
+      name="helloForm">
       <forward name="success" path="/hello.jsp"/>
     </action>
   </action-mappings>
