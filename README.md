@@ -1,3 +1,2 @@
-# struts-hello
+# struts-example
 
-Hello World using Struts
